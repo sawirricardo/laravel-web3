@@ -1,5 +1,5 @@
 <?php
 // config for Sawirricardo/LaravelWeb3
 return [
-  'network' => env('WEB3_NETWORK', 'mainnet'),
+  'network' => env('WEB3_NETWORK', 'localhost'),
 ];
