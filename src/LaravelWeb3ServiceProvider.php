@@ -2,9 +2,9 @@
 
 namespace Sawirricardo\LaravelWeb3;
 
+use Sawirricardo\LaravelWeb3\Commands\LaravelWeb3Command;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Sawirricardo\LaravelWeb3\Commands\LaravelWeb3Command;
 
 class LaravelWeb3ServiceProvider extends PackageServiceProvider
 {
