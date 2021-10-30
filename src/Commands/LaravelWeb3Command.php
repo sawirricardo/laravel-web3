@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Sawirricardo\LaravelWeb3\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelWeb3Command extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'web3';
 
     public $description = 'My command';
 
