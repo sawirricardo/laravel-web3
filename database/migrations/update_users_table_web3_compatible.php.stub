@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('password')->nullable()->change();
             $table->string('name')->nullable()->change();
 
-            $table->string('account')->unique();
+            $table->string('account')->nullable()->unique();
         });
     }
 };
