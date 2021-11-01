@@ -36,7 +36,7 @@ class Web3Controller
             Auth::login($user);
         }
 
-        return ['message' => 'Successfully logged in'];
+        return ['message' => 'Successfully logged in', 'user' => $user->toJson()];
     }
 
     public function logout()
