@@ -24,12 +24,12 @@ class Web3Controller
             'signature' => ['required', 'string', 'regex:/^0x([A-Fa-f0-9]{130})$/'],
         ]);
 
-        if ($this->verifySignature(request()->session()->pull('nonce'), request()->get('signature'), request()->get('address'))) {
+        if ($this->verifySignature(request()->session()->pull('nonce'), request()->input('signature'), request()->input('address'))) {
             throw ValidationException::withMessages(['signature' => 'Signature verification failed.']);
         }
 
-        $user = $this->getUserModel()::firstOrCreate([
-            'account' => request()->get('address'),
+        $user = $this->getUserModel()->firstOrCreate([
+            'account' => request()->input('address'),
         ]);
 
         if (is_null(request()->user())) {
