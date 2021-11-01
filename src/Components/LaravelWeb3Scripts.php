@@ -93,6 +93,7 @@ class LaravelWeb3 {
         this._provider = null;
        if (this.web3Modal !== null) await this.web3Modal.clearCachedProvider();
         await fetch("/_web3/users/logout",{
+        method: "delete",
             headers: {
                 "Content-Type": "application/json",
                 "X-XSRF-Token": "{{ csrf_token() }}",
