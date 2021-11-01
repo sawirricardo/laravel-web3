@@ -66,6 +66,14 @@ then do
 npm i -D ethers@latest web3modal@latest @walletconnect/web3-provider;
 ```
 
+## Laravel Specific
+
+Don't forget to add CSRF token as the JS part will use axios
+
+```html
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+```
+
 ## Usage
 
 ```php
