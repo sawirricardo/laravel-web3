@@ -1,4 +1,4 @@
-# Laravel Web3
+# Laravel Web3 🚀🌝
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/sawirricardo/laravel-web3.svg?style=flat-square)](https://packagist.org/packages/sawirricardo/laravel-web3)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/sawirricardo/laravel-web3/run-tests?label=tests)](https://github.com/sawirricardo/laravel-web3/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -15,7 +15,10 @@ Laravel Web3 helps you to kickstart your web3 apps.
 
 ## Support this
 
-Investing on Laravel-Web3 is defintely a good move from you. You can support by donating to my wallet 0x3F20d326E5DA8ab6D27d9b2DdD350baB1e589d87 or if you prefer to pay with regular money, I can accept PayPal https://www.paypal.com/paypalme/sawirricardo.
+Investing on Laravel-Web3 is defintely a good move from you. You can support by donating to my wallet
+
+-   Wallet 0x3F20d326E5DA8ab6D27d9b2DdD350baB1e589d87
+-   PayPal https://www.paypal.com/paypalme/sawirricardo.
 
 ## Installation
 
