@@ -18,7 +18,7 @@ class LaravelWeb3ServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-web3')
             ->hasConfigFile()
-            ->hasViews()
+            // ->hasViews()
             ->hasRoute('/../routes/web')
             ->hasMigration('update_users_table_web3_compatible')
             ->hasCommand(LaravelWeb3Command::class);
