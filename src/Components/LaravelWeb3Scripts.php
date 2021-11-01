@@ -46,11 +46,12 @@ class LaravelWeb3 {
 
     async onConnect() {
         try {
-            if (window.Web3Modal) {
-                const Web3Modal = window.Web3Modal.default;
+            let Web3Modal, WalletConnectProvider;
+            if (window.Web3Modal.default) {
+                 Web3Modal = window.Web3Modal.default;
             }
             if (window.WalletConnectProvider) {
-                const WalletConnectProvider = window.WalletConnectProvider.default;
+                 WalletConnectProvider = window.WalletConnectProvider.default;
             }
             this.web3Modal = new Web3Modal(this.web3ModalOptions);
             const provider = await this.web3Modal.connect();
@@ -97,6 +98,10 @@ class LaravelWeb3 {
 
     async onDisconnect() {
         this._provider = null;
+        let Web3Modal;
+            if (window.Web3Modal.default) {
+                 Web3Modal = window.Web3Modal.default;
+            }
             this.web3Modal = new Web3Modal(this.web3ModalOptions);
          await this.web3Modal.clearCachedProvider();
         await fetch("/_web3/users/logout",{
