@@ -81,12 +81,12 @@ Also add this to your layout HTML
 </body>
 ```
 
-<!-- ## Usage
+## Usage
 
-```php
-$laravel-web3 = new Sawirricardo\LaravelWeb3();
-echo $laravel-web3->echoPhrase('Hello, Sawirricardo!');
-``` -->
+```js
+// $laravel-web3 = new Sawirricardo\LaravelWeb3();
+// echo $laravel-web3->echoPhrase('Hello, Sawirricardo!');
+```
 
 ## Testing
 

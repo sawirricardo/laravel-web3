@@ -24,7 +24,6 @@ class LaravelWeb3Scripts extends Component
     public function render()
     {
         return <<<'blade'
-<div>
 <script>
 class LaravelWeb3 {
     constructor() {
@@ -109,7 +108,6 @@ class LaravelWeb3 {
 
 window.LaravelWeb3 = new LaravelWeb3();
 </script>
-</div>
 blade;
     }
 }
