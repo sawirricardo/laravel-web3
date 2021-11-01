@@ -9,7 +9,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelWeb3ServiceProvider extends PackageServiceProvider
 {
-
     public function configurePackage(Package $package): void
     {
         /*
