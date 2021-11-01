@@ -29,7 +29,6 @@ class LaravelWeb3 {
     constructor() {
         this._provider = null;
         this.reloadAfterFetching = true;
-        this.web3Modal = null;
         this.web3ModalOptions = {
             cacheProvider: true,
             disableInjectedProvider: false,
@@ -46,15 +45,8 @@ class LaravelWeb3 {
 
     async onConnect() {
         try {
-            let Web3Modal, WalletConnectProvider;
-            if (window.Web3Modal.default) {
-                 Web3Modal = window.Web3Modal.default;
-            }
-            if (window.WalletConnectProvider) {
-                 WalletConnectProvider = window.WalletConnectProvider.default;
-            }
-            this.web3Modal = new Web3Modal(this.web3ModalOptions);
-            const provider = await this.web3Modal.connect();
+            const web3Modal = this.prepareWeb3Modal();
+            const provider = await web3Modal.connect();
             provider.on("accountsChanged", async (accounts) => {
                 console.log("accountsChanged", accounts);
                 web3Modal.clearCachedProvider();
@@ -99,12 +91,8 @@ class LaravelWeb3 {
 
     async onDisconnect() {
         this._provider = null;
-        let Web3Modal;
-            if (window.Web3Modal.default) {
-                 Web3Modal = window.Web3Modal.default;
-            }
-            this.web3Modal = new Web3Modal(this.web3ModalOptions);
-         await this.web3Modal.clearCachedProvider();
+        const web3Modal = this.prepareWeb3Modal();
+         await web3Modal.clearCachedProvider();
         await fetch("/_web3/users/logout",{
         method: "delete",
             headers: {
@@ -115,8 +103,25 @@ class LaravelWeb3 {
         if (this.reloadAfterFetching) window.location.reload();
     }
 
-    getProvider() {
+    async getProvider() {
+        if (!this._provider) {
+            const web3Modal = this.prepareWeb3Modal();
+            const web3Provider = await web3Modal.connect();
+            this._provider = new ethers.providers.Web3Provider(web3Provider);
+        }
         return this._provider;
+    }
+
+     prepareWeb3Modal () {
+        let Web3Modal, WalletConnectProvider;
+        if (window.Web3Modal.default) {
+                Web3Modal = window.Web3Modal.default;
+        }
+        if (window.WalletConnectProvider) {
+                WalletConnectProvider = window.WalletConnectProvider.default;
+        }
+        const web3Modal = new Web3Modal(this.web3ModalOptions);
+        return web3Modal;
     }
 }
 
