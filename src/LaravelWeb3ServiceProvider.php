@@ -3,6 +3,7 @@
 namespace Sawirricardo\LaravelWeb3;
 
 use Sawirricardo\LaravelWeb3\Commands\LaravelWeb3Command;
+use Sawirricardo\LaravelWeb3\Scripts;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,7 +22,7 @@ class LaravelWeb3ServiceProvider extends PackageServiceProvider
             // ->hasViews()
             ->hasRoute('/../routes/web')
             ->hasMigration('update_users_table_web3_compatible')
-            ->hasViewComponents('lightweb3', LaravelWeb3Scripts::class)
+            ->hasViewComponents('laravelweb3', Scripts::class)
             ->hasCommand(LaravelWeb3Command::class);
     }
 }
