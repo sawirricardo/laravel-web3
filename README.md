@@ -6,6 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/sawirricardo/laravel-web3.svg?style=flat-square)](https://packagist.org/packages/sawirricardo/laravel-web3)
 
 ---
+
 This repo can be used to scaffold a Laravel package. Follow these steps to get started:
 
 1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this laravel-web3
@@ -13,6 +14,7 @@ This repo can be used to scaffold a Laravel package. Follow these steps to get s
 3. Remove this block of text.
 4. Have fun creating your package.
 5. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
+
 ---
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
@@ -41,6 +43,7 @@ php artisan migrate
 ```
 
 You can publish the config file with:
+
 ```bash
 php artisan vendor:publish --provider="Sawirricardo\LaravelWeb3\LaravelWeb3ServiceProvider" --tag="laravel-web3-config"
 ```
@@ -50,6 +53,13 @@ This is the contents of the published config file:
 ```php
 return [
 ];
+```
+
+Add this to your .env
+
+```env
+WEB3_NETWORK=localhost //mainnet, mumbai, etc
+WEB_INFURA_ID=xxxxxxxxxxxxxxxxxx
 ```
 
 ## Usage
@@ -79,8 +89,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [ricardosawir](https://github.com/sawirricardo)
-- [All Contributors](../../contributors)
+-   [ricardosawir](https://github.com/sawirricardo)
+-   [All Contributors](../../contributors)
 
 ## License
 
