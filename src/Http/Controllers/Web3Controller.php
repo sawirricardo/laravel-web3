@@ -32,7 +32,7 @@ class Web3Controller
             'account' => $data['address'],
         ]);
 
-        if (!is_null(request()->user('web')) && request()->user('web')->id !== $user->id) {
+        if (! is_null(request()->user('web')) && request()->user('web')->id !== $user->id) {
             Auth::logout();
             request()->session()->invalidate();
             request()->session()->regenerateToken();
