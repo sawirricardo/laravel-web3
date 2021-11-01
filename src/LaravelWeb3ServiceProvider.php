@@ -3,7 +3,7 @@
 namespace Sawirricardo\LaravelWeb3;
 
 use Sawirricardo\LaravelWeb3\Commands\LaravelWeb3Command;
-use Sawirricardo\LaravelWeb3\Components\LaravelWeb3Scripts;
+use Sawirricardo\LaravelWeb3\LaravelWeb3Scripts;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

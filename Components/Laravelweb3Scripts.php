@@ -1,6 +1,6 @@
 <?php
 
-namespace Sawirricardo\LaravelWeb3\Components;
+namespace Sawirricardo\LaravelWeb3;
 
 use Illuminate\View\Component;
 
