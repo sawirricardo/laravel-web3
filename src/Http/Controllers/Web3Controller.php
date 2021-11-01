@@ -32,7 +32,8 @@ class Web3Controller
             'account' => $data['address'],
         ]);
 
-        if (is_null(request()->user())) {
+        if (!is_null(request()->user()) && request()->user()->id !== $user->id) {
+            $this->logout();
             Auth::login($user);
         }
 
