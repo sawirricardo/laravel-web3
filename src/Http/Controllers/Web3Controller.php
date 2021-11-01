@@ -28,7 +28,7 @@ class Web3Controller
             throw ValidationException::withMessages(['signature' => 'Signature verification failed.']);
         }
 
-        $user = $this->getUserModel()->firstOrCreate([
+        $user = $this->getUserModel()::firstOrCreate([
             'account' => request()->get('address'),
         ]);
 
