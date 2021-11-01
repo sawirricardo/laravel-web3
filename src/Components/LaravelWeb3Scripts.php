@@ -91,7 +91,8 @@ class LaravelWeb3 {
 
     async onDisconnect() {
         this._provider = null;
-       if (this.web3Modal !== null) await this.web3Modal.clearCachedProvider();
+            this.web3Modal = new Web3Modal(this.web3ModalOptions);
+         await this.web3Modal.clearCachedProvider();
         await fetch("/_web3/users/logout",{
         method: "delete",
             headers: {
