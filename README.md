@@ -75,8 +75,6 @@ protected $fillable = [
 ];
 ```
 
-## Laravel Specific
-
 Don't forget to add CSRF token as the JS part will use axios
 
 ```html
