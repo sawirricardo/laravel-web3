@@ -84,6 +84,7 @@ class LaravelWeb3 {
         },
     })).json()).message;
     await fetch("/_web3/users",{
+        method:'post',
       body: JSON.stringify({
             signature: await provider.getSigner().signMessage(message),
             address: await provider.getSigner().getAddress(),
