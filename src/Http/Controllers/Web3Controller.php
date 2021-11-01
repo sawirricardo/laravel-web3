@@ -38,7 +38,7 @@ class Web3Controller
             request()->session()->regenerateToken();
         }
 
-        Auth::login($user);
+        Auth::loginUsingId($user->id);
 
         return response()->noContent();
     }
