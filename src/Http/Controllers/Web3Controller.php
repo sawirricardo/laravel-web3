@@ -3,6 +3,7 @@
 namespace Sawirricardo\LaravelWeb3\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -17,22 +18,22 @@ class Web3Controller
         return ['message' => $this->generateSignatureMessage($nonce)];
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        request()->validate([
+        $request->validate([
             'address' => ['required', 'string', 'regex:/0x[a-fA-F0-9]{40}/m'],
             'signature' => ['required', 'string', 'regex:/^0x([A-Fa-f0-9]{130})$/'],
         ]);
 
-        if ($this->verifySignature(request()->session()->pull('nonce'), request()->input('signature'), request()->input('address'))) {
+        if ($this->verifySignature($request->session()->pull('nonce'), $request->input('signature'), $request->input('address'))) {
             throw ValidationException::withMessages(['signature' => 'Signature verification failed.']);
         }
 
         $user = $this->getUserModel()->firstOrCreate([
-            'account' => request()->input('address'),
+            'account' => $request->input('address'),
         ]);
 
-        if (is_null(request()->user())) {
+        if (is_null($request->user())) {
             Auth::login($user);
         }
 
