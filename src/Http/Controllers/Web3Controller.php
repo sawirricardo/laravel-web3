@@ -28,7 +28,7 @@ class Web3Controller
             throw ValidationException::withMessages(['signature' => 'Signature verification failed.']);
         }
 
-        $user = $this->getUserModel()->firstOrCreate([
+        $user = $this->getUserModel()::firstOrCreate([
             'account' => $data['address'],
         ]);
 
@@ -36,7 +36,7 @@ class Web3Controller
             Auth::login($user);
         }
 
-        return ['message' => 'Successfully logged in', 'request' => $data];
+        return ['message' => 'Successfully logged in'];
     }
 
     public function logout()
