@@ -20,17 +20,17 @@ class Web3Controller
     public function store()
     {
         $data = request()->validate([
-      'address' => ['required', 'string', 'regex:/0x[a-fA-F0-9]{40}/m'],
-      'signature' => ['required', 'string', 'regex:/^0x([A-Fa-f0-9]{130})$/'],
-    ]);
+            'address' => ['required', 'string', 'regex:/0x[a-fA-F0-9]{40}/m'],
+            'signature' => ['required', 'string', 'regex:/^0x([A-Fa-f0-9]{130})$/'],
+        ]);
 
         if ($this->verifySignature(request()->session()->pull('nonce'), $data['signature'], $data['address'])) {
             throw ValidationException::withMessages(['signature' => 'Signature verification failed.']);
         }
 
         $user = $this->getUserModel()->firstOrCreate([
-      'account' => $data['address'],
-    ]);
+            'account' => $data['address'],
+        ]);
 
         if (is_null(request()->user())) {
             Auth::login($user);
@@ -39,7 +39,7 @@ class Web3Controller
         return ['message' => 'Successfully logged in'];
     }
 
-    public function destroy()
+    public function logout()
     {
         Auth::logout();
         request()->session()->invalidate();
