@@ -10,6 +10,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelWeb3ServiceProvider extends PackageServiceProvider
 {
+    // @example https://github.com/spatie/package-skeleton-laravel/discussions/155#discussioncomment-1566700 Freek told that to register view, use this.
     public function packageBooted()
     {
         Blade::component('laravelweb3Scripts', LaravelWeb3Scripts::class);
