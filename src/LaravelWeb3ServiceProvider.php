@@ -2,12 +2,19 @@
 
 namespace Sawirricardo\LaravelWeb3;
 
+use Illuminate\Support\Facades\Blade;
 use Sawirricardo\LaravelWeb3\Commands\LaravelWeb3Command;
+use Sawirricardo\LaravelWeb3\Components\LaravelWeb3Scripts;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelWeb3ServiceProvider extends PackageServiceProvider
 {
+    public function packageBooted()
+    {
+        Blade::component('laravelweb3Scripts', LaravelWeb3Scripts::class);
+    }
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -21,7 +28,6 @@ class LaravelWeb3ServiceProvider extends PackageServiceProvider
             // ->hasViews()
             ->hasRoute('/../routes/web')
             ->hasMigration('update_users_table_web3_compatible')
-            ->hasViewComponents('laravelweb3', Scripts::class)
             ->hasCommand(LaravelWeb3Command::class);
     }
 }

@@ -4,7 +4,7 @@ namespace Sawirricardo\LaravelWeb3;
 
 use Illuminate\View\Component;
 
-class Scripts extends Component
+class LaravelWeb3Scripts extends Component
 {
     /**
      * Create a new component instance.
