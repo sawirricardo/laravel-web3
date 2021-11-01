@@ -75,12 +75,12 @@ protected $fillable = [
 ];
 ```
 
-## Usage
+<!-- ## Usage
 
 ```php
 $laravel-web3 = new Sawirricardo\LaravelWeb3();
 echo $laravel-web3->echoPhrase('Hello, Sawirricardo!');
-```
+``` -->
 
 ## Testing
 
