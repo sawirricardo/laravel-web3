@@ -58,8 +58,10 @@ return [
 Add this to your .env
 
 ```env
-WEB3_NETWORK=localhost //mainnet, mumbai, etc
+WEB3_NETWORK=localhost #mainnet, mumbai, etc
 WEB_INFURA_ID=xxxxxxxxxxxxxxxxxx
+MIX_WEB3_NETWORK="${WEB3_NETWORK}"
+MIX_WEB3_INFURA_ID="${WEB_INFURA_ID}"
 ```
 
 ## Usage
