@@ -66,6 +66,15 @@ then do
 npm i -D ethers@latest web3modal@latest @walletconnect/web3-provider;
 ```
 
+Then, add "account" to fillables
+
+```php
+protected $fillable = [
+  'email','name','password',
+  'account' //Add this
+];
+```
+
 ## Laravel Specific
 
 Don't forget to add CSRF token as the JS part will use axios
