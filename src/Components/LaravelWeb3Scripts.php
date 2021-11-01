@@ -73,7 +73,7 @@ class LaravelWeb3 {
         method: "get",
         headers: {
             "Content-Type": "application/json",
-            "X-XSRF-Token": "{{ csrf_token() }}",
+            "X-CSRF-Token": "{{ csrf_token() }}",
         },
     })).json()).message;
     await fetch("/_web3/users",{
@@ -83,7 +83,7 @@ class LaravelWeb3 {
       }),
       headers: {
             "Content-Type": "application/json",
-            "X-XSRF-Token": "{{ csrf_token() }}",
+            "X-CSRF-Token": "{{ csrf_token() }}",
         },
     })
         this._provider = provider;
@@ -96,7 +96,7 @@ class LaravelWeb3 {
         method: "delete",
             headers: {
                 "Content-Type": "application/json",
-                "X-XSRF-Token": "{{ csrf_token() }}",
+                "X-CSRF-Token": "{{ csrf_token() }}",
             },
         });
         if (this.reloadAfterFetching) window.location.reload();
