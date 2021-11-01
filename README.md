@@ -83,9 +83,23 @@ Also add this to your layout HTML
 
 ## Usage
 
+```blade
+@guest
+<button onclick="laravelWeb3.onConnect()">Connect to wallet</button>
+@endguest
+
+@auth
+<button onclick="laravelWeb3.onDisconnect()">Disconnect wallet</button>
+@endauth
+```
+
 ```js
-// $laravel-web3 = new Sawirricardo\LaravelWeb3();
-// echo $laravel-web3->echoPhrase('Hello, Sawirricardo!');
+// return provider object by Ethers JS
+// Run wild, my friends
+const etherProvider = laravelWeb3.getProvider();
+
+// LaravelWeb3 automatically register laravelWeb3 to window object for you to play.
+console.log({window.laravelWeb3});
 ```
 
 ## Testing

@@ -106,7 +106,7 @@ class LaravelWeb3 {
     }
 }
 
-window.LaravelWeb3 = new LaravelWeb3();
+window.laravelWeb3 = new LaravelWeb3();
 </script>
 blade;
     }
