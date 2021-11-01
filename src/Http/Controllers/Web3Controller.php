@@ -32,12 +32,15 @@ class Web3Controller
             'account' => $data['address'],
         ]);
 
-        if (! is_null(request()->user()) && request()->user()->id !== $user->id) {
-            $this->logout();
-            Auth::login($user);
+        if (!is_null(request()->user()) && request()->user()->id !== $user->id) {
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
         }
 
-        return ['message' => 'Successfully logged in', 'user' => $user->toJson()];
+        Auth::login($user);
+
+        return response()->noContent();
     }
 
     public function logout()
@@ -46,7 +49,7 @@ class Web3Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
 
-        return ['message' => 'Successfully logged out'];
+        return response()->noContent();
     }
 
     protected function getUserModel(): Model
