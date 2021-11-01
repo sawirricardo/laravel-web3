@@ -52,6 +52,8 @@ This is the contents of the published config file:
 
 ```php
 return [
+  'network' => env('WEB3_NETWORK', 'localhost'),
+  'infura_id' => env('WEB3_INFURA_ID', ''),
 ];
 ```
 
@@ -62,6 +64,22 @@ WEB3_NETWORK=localhost #mainnet, mumbai, etc
 WEB_INFURA_ID=xxxxxxxxxxxxxxxxxx
 MIX_WEB3_NETWORK="${WEB3_NETWORK}"
 MIX_WEB3_INFURA_ID="${WEB_INFURA_ID}"
+```
+
+copy the contents from this [github gist](https://gist.github.com/sawirricardo/cb8c34c0eec1069585586a423c3b62e9)
+to /resources/js/lightweb3.js
+and add this to your app
+
+```js
+// resources/js/app.js
+require("./bootstrap");
+require("./lightweb3");
+```
+
+then do
+
+```
+npm i -D ethers@latest web3modal@latest @walletconnect/web3-provider;
 ```
 
 ## Usage
