@@ -91,7 +91,7 @@ class LaravelWeb3 {
 
     async onDisconnect() {
         this._provider = null;
-        await this.web3Modal.clearCachedProvider();
+       if (this.web3Modal !== null) await this.web3Modal.clearCachedProvider();
         await fetch("/_web3/users/logout",{
             headers: {
                 "Content-Type": "application/json",
