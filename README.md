@@ -9,7 +9,13 @@
 
 Laravel Web3 helps you to kickstart your web3 apps.
 
-<!-- ## Support us -->
+-   No more headache with handling wallet changing address and sync with laravel back-end.
+-   Just do it
+-   Really, just do the steps below and be done.
+
+## Support this
+
+Investing on Laravel-Web3 is defintely a good move from you. You can support by donating to my wallet 0x3F20d326E5DA8ab6D27d9b2DdD350baB1e589d87 or if you prefer to pay with regular money, I can accept PayPal https://www.paypal.com/paypalme/sawirricardo.
 
 ## Installation
 
