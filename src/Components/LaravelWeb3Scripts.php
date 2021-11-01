@@ -46,6 +46,12 @@ class LaravelWeb3 {
 
     async onConnect() {
         try {
+            if (window.Web3Modal) {
+                const Web3Modal = window.Web3Modal.default;
+            }
+            if (window.WalletConnectProvider) {
+                const WalletConnectProvider = window.WalletConnectProvider.default;
+            }
             this.web3Modal = new Web3Modal(this.web3ModalOptions);
             const provider = await this.web3Modal.connect();
             provider.on("accountsChanged", async (accounts) => {
@@ -109,12 +115,6 @@ class LaravelWeb3 {
 }
 
 window.laravelWeb3 = new LaravelWeb3();
-if (window.Web3Modal) {
-    const Web3Modal = window.Web3Modal.default;
-}
-if (window.WalletConnectProvider) {
-    const WalletConnectProvider = window.WalletConnectProvider.default;
-}
 </script>
 blade;
     }
