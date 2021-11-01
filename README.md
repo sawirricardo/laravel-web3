@@ -50,29 +50,35 @@ MIX_WEB3_NETWORK="${WEB3_NETWORK}"
 MIX_WEB3_INFURA_ID="${WEB_INFURA_ID}"
 ```
 
-copy the contents from this [github gist](https://gist.github.com/sawirricardo/cb8c34c0eec1069585586a423c3b62e9)
-to /resources/js/lightweb3.js
-and add this to your app
-
-```js
-// resources/js/app.js
-require("./bootstrap");
-require("./lightweb3");
-```
-
-then do
-
-```
-npm i -D ethers@latest web3modal@latest @walletconnect/web3-provider;
-```
-
-Then, add "account" to fillables
+Then, add "account" to \App\Models\User fillables
 
 ```php
+// app/Models/User.php
 protected $fillable = [
   'email','name','password',
   'account' //Add this
 ];
+```
+
+Also add this to your layout HTML
+
+```html
+<body>
+    <!-- it's best to drop this at the below -->
+    <script
+        src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"
+    ></script>
+    <script
+        type="text/javascript"
+        src="https://unpkg.com/web3modal@1.9.0/dist/index.js"
+    ></script>
+    <script
+        type="text/javascript"
+        src="https://unpkg.com/@walletconnect/web3-provider@1.6.5/dist/umd/index.min.js"
+    ></script>
+    <x-laravelweb3Scripts />
+</body>
 ```
 
 <!-- ## Usage
