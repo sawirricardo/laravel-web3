@@ -109,6 +109,8 @@ class LaravelWeb3 {
 }
 
 window.laravelWeb3 = new LaravelWeb3();
+if (window.Web3Modal) const Web3Modal = window.Web3Modal.default;
+if (window.WalletConnectProvider) const WalletConnectProvider = window.WalletConnectProvider.default;
 </script>
 blade;
     }
