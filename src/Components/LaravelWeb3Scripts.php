@@ -29,6 +29,7 @@ class LaravelWeb3 {
     constructor() {
         this._provider = null;
         this.reloadAfterFetching = true;
+        this.alertUserIfMetamaskIsNotInstalled = true;
         this.web3ModalOptions = {
             cacheProvider: true,
             disableInjectedProvider: false,
@@ -58,6 +59,13 @@ class LaravelWeb3 {
                 web3Modal.clearCachedProvider();
                 await this.fetchAccount(provider);
                 if (this.reloadAfterFetching) window.location.reload();
+            });
+            provider.on("connect", ( { chainId }) => {
+                console.log("connect", chainId);
+            });
+
+            provider.on("disconnect", ( { code, message }) => {
+                console.log("disconnect", code, message);
             });
             await this.fetchAccount(provider);
             if (this.reloadAfterFetching) window.location.reload();
@@ -114,6 +122,10 @@ class LaravelWeb3 {
 
      prepareWeb3Modal () {
         let Web3Modal, WalletConnectProvider;
+        if (!(window.web3 || window.ethereum) && this.alertUserIfMetamaskIsNotInstalled) {
+            alert(`Please install Metamask first`);
+            return;
+        }
         if (window.Web3Modal.default) {
                 Web3Modal = window.Web3Modal.default;
         }
