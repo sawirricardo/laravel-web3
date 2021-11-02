@@ -137,8 +137,8 @@ class LaravelWeb3 {
         return web3Modal;
     }
 
-    addContract(contractConfig) {
-        this.contracts = [...this.contracts, contractConfig];
+    addContract(address,contract) {
+        this.contracts = [...this.contracts, { address, contract }];
     }
 }
 
