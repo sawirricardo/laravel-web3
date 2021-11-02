@@ -30,6 +30,7 @@ class LaravelWeb3 {
         this._provider = null;
         this.reloadAfterFetching = true;
         this.alertUserIfMetamaskIsNotInstalled = true;
+        this.contracts = [];
         this.web3ModalOptions = {
             cacheProvider: true,
             disableInjectedProvider: false,
@@ -134,6 +135,10 @@ class LaravelWeb3 {
         }
         const web3Modal = new Web3Modal(this.web3ModalOptions);
         return web3Modal;
+    }
+
+    addContract(contractConfig) {
+        this.contracts = [...this.contracts, contractConfig];
     }
 }
 
