@@ -29,7 +29,7 @@ class Web3Controller
         }
 
         $user = $this->getUserModel()::firstOrCreate([
-            'account' => $data['address'],
+            config('web3.model.column') => $data['address'],
         ]);
 
         if (! is_null(request()->user()) && request()->user()->id !== $user->id) {
